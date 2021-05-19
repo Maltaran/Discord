@@ -1,0 +1,13 @@
+{
+    "name": "server-bot",
+    "version": "1.0.0",
+    "description": "One bot for everything.",
+    "main": "bot.js",
+    "author": "Maltaran",
+    "dependencies": {
+        "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+        "discord.js": "^12.0.1",
+        "node-fetch": "^2.6.0",
+        "winston": "^3.2.1"
+    }
+}
