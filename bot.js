@@ -14,21 +14,22 @@ const clear = function(ch) {
 
 bot.on('ready', () => {
   console.log('Logged in!');
+  bot.channels.fetch('684036840088404019').then((channel) => channel.messages.fetch('853629500826320916', true));
 });
 
 bot.on("messageReactionAdd", (reaction, user) => {
   if (user.bot) return;
   if (reaction.emoji.name != "BonusBoost") return;
-  if (reaction.message.channel.id != '853599042604236820') return;
-  var role = reaction.message.guild.roles.find(role => role.name === "Multiplayer");
+  if (reaction.message.id != '853629500826320916') return;
+  var role = reaction.message.guild.roles.cache.find(role => role.name === "Multiplayer");
   reaction.message.guild.members.cache.get(user.id).roles.add(role);
 });
 
 bot.on("messageReactionRemove", (reaction, user) => {
   if (user.bot) return;
   if (reaction.emoji.name != "BonusBoost") return;
-  if (reaction.message.channel.id != '853599042604236820') return;
-  var role = reaction.message.guild.roles.find(role => role.name === "Multiplayer");
+  if (reaction.message.id != '853629500826320916') return;
+  var role = reaction.message.guild.roles.cache.find(role => role.name === "Multiplayer");
   reaction.message.guild.members.cache.get(user.id).roles.remove(role);
 });
 
