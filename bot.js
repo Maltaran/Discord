@@ -24,14 +24,16 @@ bot.on("messageReactionAdd", (reaction, user) => {
   if (user.bot) return;
   if (reaction.emoji.name != "BonusBoost") return;
   if (reaction.message.id != '853629500826320916') return;
-  var role = reaction.message.guild.roles.cache.find(role => role.name === "Multiplayer") || await reaction.message.guild.members.cache.get(user.id).roles.add(role);
+  var role = reaction.message.guild.roles.cache.find(role => role.name === "Multiplayer");
+  reaction.message.guild.members.cache.get(user.id).roles.add(role);
 });
 
 bot.on("messageReactionRemove", (reaction, user) => {
   if (user.bot) return;
   if (reaction.emoji.name != "BonusBoost") return;
   if (reaction.message.id != '853629500826320916') return;
-  var role = reaction.message.guild.roles.cache.find(role => role.name === "Multiplayer") || await reaction.message.guild.members.cache.get(user.id).roles.remove(role);
+  var role = reaction.message.guild.roles.cache.find(role => role.name === "Multiplayer");
+  reaction.message.guild.members.cache.get(user.id).roles.remove(role);
 });
 
 var ignores = [];
